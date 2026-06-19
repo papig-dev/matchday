@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Matchday</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -109,6 +109,10 @@ canvas{width:100%;height:auto;display:block;}
     width:28px;height:28px;border-radius:6px;font-size:15px;cursor:pointer;
     flex-shrink:0;
   }
+  #main{
+    padding-left:env(safe-area-inset-left);
+    padding-right:env(safe-area-inset-right);
+  }
   #scorebar{padding:5px 12px;border-radius:0;border-left:none;border-right:none;border-top:none;}
   #score{font-size:20px;letter-spacing:3px;}
   .tn{font-size:11px;}
@@ -116,8 +120,12 @@ canvas{width:100%;height:auto;display:block;}
   .badge{width:22px;height:22px;font-size:9px;}
   #minb{font-size:10px;padding:1px 7px;}
   #pbar{height:2px;}
-  canvas{width:auto!important;height:calc(100dvh - 76px)!important;margin:0 auto;}
-  #evbar{padding:5px 10px;border-radius:0;border-left:none;border-right:none;}
+  canvas{width:auto!important;height:calc(100dvh - 76px - env(safe-area-inset-bottom))!important;margin:0 auto;}
+  #evbar{
+    padding:5px 10px;
+    padding-bottom:calc(5px + env(safe-area-inset-bottom));
+    border-radius:0;border-left:none;border-right:none;
+  }
   #evt{font-size:11px;}
   #strow-wrap{display:none;}
 }
