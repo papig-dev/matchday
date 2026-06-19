@@ -294,8 +294,8 @@ function fresh(){
   const tbl={};TK.forEach(k=>tbl[k]={w:0,d:0,l:0,gf:0,ga:0});
   return{tbl,res:SCH.map(r=>r.map(()=>null)),wr:0,wm:0,live:null};
 }
-function load(){try{const d=JSON.parse(localStorage.getItem('fm3'));return(d&&d.tbl)?d:fresh();}catch{return fresh();}}
-function save(){localStorage.setItem('fm3',JSON.stringify(ST));}
+function load(){try{const d=JSON.parse(localStorage.getItem('matchday1'));return(d&&d.tbl)?d:fresh();}catch{return fresh();}}
+function save(){localStorage.setItem('matchday1',JSON.stringify(ST));}
 let ST=load();
 
 // ── AUDIO ────────────────────────────────────────────────────────────────────
