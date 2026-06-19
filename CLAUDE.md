@@ -1,7 +1,7 @@
 # Matchday
 
-Premier League 경기를 실시간으로 관전하는 브라우저 기반 풋볼 관전 게임.
-순수 프론트엔드 (HTML5 Canvas + Vanilla JS), 백엔드 없음.
+가상의 풋볼 리그 경기를 실시간으로 관전하는 브라우저 기반 풋볼 관전 게임.
+팀명·선수명은 모두 가상. 순수 프론트엔드 (HTML5 Canvas + Vanilla JS), 백엔드 없음.
 
 ## 파일 구조
 
@@ -44,7 +44,7 @@ cd frontend && npx vercel --prod
 
 ### 시즌
 - 8팀 라운드로빈 14라운드 (홈/원정 각 1회)
-- `ST` (localStorage 'fm3'): `{tbl, res, wr, wm, live}`
+- `ST` (localStorage 'matchday1'): `{tbl, res, wr, wm, live}`
 - 경기 종료 → 같은 라운드 나머지 경기 자동 시뮬 → 다음 경기 자동 시작
 - `live` 필드로 진행 중 경기 상태 저장 (다른 경기 보다 돌아와도 복원)
 
