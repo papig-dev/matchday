@@ -94,6 +94,33 @@ canvas{width:100%;height:auto;display:block;}
   #evbar{border-radius:0;border-left:none;border-right:none;}
   #strow{border-radius:0;border-left:none;border-right:none;}
 }
+@media(orientation:landscape)and(max-height:500px){
+  body{padding:0;overflow:hidden;}
+  #app{grid-template-columns:1fr;gap:0;width:100%;}
+  #sidebar{
+    position:fixed;top:0;left:0;bottom:0;width:260px;z-index:50;
+    background:#0d1117;padding:16px 12px;gap:12px;overflow-y:auto;
+    transform:translateX(-110%);
+  }
+  #sidebar.open{transform:translateX(0);}
+  #toggle-sidebar{
+    display:flex;align-items:center;justify-content:center;
+    background:none;border:1px solid #30363d;color:#8b949e;
+    width:28px;height:28px;border-radius:6px;font-size:15px;cursor:pointer;
+    flex-shrink:0;
+  }
+  #scorebar{padding:5px 12px;border-radius:0;border-left:none;border-right:none;border-top:none;}
+  #score{font-size:20px;letter-spacing:3px;}
+  .tn{font-size:11px;}
+  .tact{display:none;}
+  .badge{width:22px;height:22px;font-size:9px;}
+  #minb{font-size:10px;padding:1px 7px;}
+  #pbar{height:2px;}
+  canvas{width:auto!important;height:calc(100dvh - 76px)!important;margin:0 auto;}
+  #evbar{padding:5px 10px;border-radius:0;border-left:none;border-right:none;}
+  #evt{font-size:11px;}
+  #strow-wrap{display:none;}
+}
 </style>
 </head>
 <body>
