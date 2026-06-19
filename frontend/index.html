@@ -70,8 +70,8 @@ canvas{display:block;border-left:1px solid #30363d;border-right:1px solid #30363
 .tact{font-size:10px;color:#8b949e;margin-top:1px;letter-spacing:.3px;}
 #strow{transition:all .2s;}
 #strow.hidden{display:none;}
-#stats-toggle{background:none;border:none;color:#8b949e;font-size:11px;cursor:pointer;padding:2px 6px;border-radius:4px;}
-#stats-toggle:hover{color:#e6edf3;}
+#stats-toggle{background:#21262d;border:1px solid #30363d;color:#8b949e;font-size:11px;cursor:pointer;padding:3px 8px;border-radius:4px;margin-left:6px;}
+#stats-toggle:hover{color:#e6edf3;border-color:#58a6ff;}
 canvas{width:100%;height:auto;display:block;}
 
 @media(max-width:860px){
@@ -146,10 +146,10 @@ canvas{width:100%;height:auto;display:block;}
       <button class="spd" data-s="2">2×</button>
       <button class="spd" data-s="4">4×</button>
       <button class="spd" data-s="8">8×</button>
+      <button id="stats-toggle" onclick="toggleStats()">통계 ▾</button>
     </div>
   </div>
-  <div id="strow-wrap" style="position:relative;margin-top:10px;">
-    <button id="stats-toggle" onclick="toggleStats()" style="position:absolute;right:10px;top:-22px;font-size:10px;background:#161b22;border:1px solid #30363d;color:#8b949e;padding:2px 8px;border-radius:4px;cursor:pointer;">통계 ▾</button>
+  <div id="strow-wrap" style="margin-top:10px;">
   <div id="strow" style="margin-top:0;">
     <div class="st"><div class="sl">슈팅</div><div class="sb"><div class="sbh" id="sh-h" style="width:50%"></div><div class="sba" id="sh-a" style="width:50%"></div></div><div class="sn"><span id="sh-hn">0</span><span id="sh-an">0</span></div></div>
     <div class="st"><div class="sl">점유율</div><div class="sb"><div class="sbh" id="po-h" style="width:50%"></div><div class="sba" id="po-a" style="width:50%"></div></div><div class="sn"><span id="po-hn">50%</span><span id="po-an">50%</span></div></div>
