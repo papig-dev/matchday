@@ -685,6 +685,11 @@ function startMatch(r,m){
     stats={sh:[...lv.stats.sh],so:[...lv.stats.so]};
     hPoss=lv.hPoss;poss=lv.poss;carIdx=lv.carIdx;
     eventTimer=0;
+    // if halftime was saved mid-transition, skip straight to second half
+    if(phase==='halftime'){
+      min=46;phase='second';
+      [...HP,...AP].forEach(p=>{p.isH=!p.isH;p.hrx=1-p.hrx;p.rx=p.hrx;p.ry=p.hry;p.vx=0;p.vy=0;});
+    }
   } else {
     sc=[0,0];min=1;phase='first';
     poss='home';carIdx=9;eventTimer=0;hPoss=50;stats={sh:[0,0],so:[0,0]};
@@ -711,9 +716,9 @@ function tick(){
   // minute
   if(frm%FPM===0){
     min++;
-    saveLive(); // persist live state every minute
-    if(min===45&&phase==='first'){
+    if(min>=45&&phase==='first'){
       phase='halftime';
+      saveLive(); // save with phase='halftime' so restore knows to skip to second half
       document.getElementById('htsc').textContent=`${TEAMS[hk].name} ${sc[0]} - ${sc[1]} ${TEAMS[ak].name}`;
       document.getElementById('htov').classList.add('show');
       setTimeout(()=>{
@@ -729,6 +734,7 @@ function tick(){
         updateScorebar();
         setEv('↔',`후반전 시작 — <span>진영 교체</span>`);
         sideFlash=120;
+        saveLive(); // save with phase='second', min=46
       },Math.max(500,2200/speed));
       return;
     }
@@ -761,6 +767,7 @@ function tick(){
       }
       return;
     }
+    saveLive(); // persist live state every minute (normal minutes only)
   }
 
   hPoss+=poss==='home'?.035:-.035;hPoss=Math.max(28,Math.min(72,hPoss));
